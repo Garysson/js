@@ -1,14 +1,11 @@
 "use strict";
 
-let age = prompt('Ваш возраст', '');
-let drink = confirm('Алкаголь употребляем?');
+let num = prompt('Высота вершины треугольника');
 
-if (age >= 40 && drink == true) {
-    alert ('Не злоупотребляйте');
-    } else if (age < 18 && drink == true) {
-    alert ('Ты что?! Маме расскажу!');
-    } else if (age >=18 && drink == true) {
-    alert ('Только водку с пивом не мешай...');
-    } else {
-    alert ('Так держать!');
-    };
+for (let i = 0; i < num; i++) {
+	let res = '*'
+		for (let j = 0; j < i; j++) {
+			res += '*';
+		}
+	console.log(res);
+}
