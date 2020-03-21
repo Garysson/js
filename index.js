@@ -1,115 +1,104 @@
 "use strict";
 
-let a = prompt('Radius of circle','');
-let b = prompt('Enter first number','');
-let q = prompt('Enter second number', '');
-let c = prompt('Please neter one of mathematic operator + - * /', '');
-let sumNumber = sum();
-let minusNumber = minus();
-let divisionNumber = division();
-let multiplicationNumber = multiplication();
-const PI = 3.1415;
-
-function isItNumberFirst () {
-    let c = +a;
-    let b = c + 'a';
-
-    if ( b === 'NaNa') {
-        return console.log('Please enter radius of ciercle value as a number');
+let students = [
+    {
+        name : 'Vasya',
+        dateBirth : 1987,
+        sex : 'male'
+    },
+    {
+        name : 'Petay',
+        dateBirth : 1983,
+        sex : 'male'
+    },
+    {
+        name : 'Igor',
+        dateBirth : 1991,
+        sex : 'female'
+    },
+    {
+        name : 'Katya',
+        dateBirth : 1995,
+        sex : 'female'
+    },
+    {
+        name : 'Irina',
+        dateBirth : 2000,
+        sex : 'female'
     }
-}
+];
 
-function areaCircle (a, b) {
-    return (a*b)*(a*b);
-}
+function getAverageAge(arr) {
+    let a = 0;
 
-function areaPerimeter (a, b) {
-    return (a)*(2*b);
-}
-
-function getUsersRadius (dataUserRadius) {
-    let x = a;
-    let y = PI;
-
-    return dataUserRadius(x, y);
-}
-
-function isItNumberSecond () {
-    let c = +b;
-    let d = c + 'a';
-
-    let w = +q;
-    let e = w + 'a';
-
-    if ( d === 'NaNa') {
-        return console.log('Please enter first number value as a number');
-    } else if ( e === 'NaNa') {
-        return console.log('Please enter second value as a number');
+    for (let i = 0; i <= arr.length - 1; i++) {
+        a += 2020 - arr[i].dateBirth;
     }
+
+    return a/arr.length;
 }
 
+function checkMostGender(arr) {
+    let a = '';
+    let b = 0;
+    let c = 0;
+    const j = 'Мужчин больше чем женщин';
+    const y = 'Женщин больше чем мужчин';
 
+    for (let i = 0; i <= arr.length - 1; i++) {
+        a += arr[i].sex;
 
-function sum (x, y) {
-    const c = +b;
-    const e = +q;
+        if (arr[i].sex === 'male') {
+            b += 1
+        } if (arr[i].sex === 'female') {
+            c += 1
+        }
+    };
 
-    return c + e;
-}
-
-function avarage () {
-    const c = 2;
-    let b = sum();
-
-    return b / c;
-}
-
-function minus (x, y) {
-    const c = +b;
-    const e = +q;
-
-    return c - e;
-}
-
-
-function division (x, y) {
-    const c = +b;
-    const e = +q;
-
-    return c / e;
-}
-
-function multiplication (x, y) {
-    const c = +b;
-    const e = +q;
-
-    return c * e;
-}
-
-function getResult() {
-    let z = c;
-
-    if (c === '+') {
-        return console.log('Сумма чисел равна ' + sumNumber);
-    } else if (c === '-') {
-        return console.log('Вычетание чисел равно ' + minusNumber);
-    } else if (c === '/') {
-        return console.log('Деление чисел равно ' + divisionNumber);
-    } else if (c === '*') {
-        return console.log('Умножение чисел равно ' + multiplicationNumber);
+    if (b > c) {
+        return j
     } else {
-        return console.log('Please neter one of mathematic operator + - * /')
-    }
+        return y
+    };
 }
 
-isItNumberFirst();
+console.log('Средний возраст студентов ' + getAverageAge(students) + 'лет');
+console.log(checkMostGender(students));
 
-isItNumberSecond();
+let arr = [1, 2, 'asas', 4, 5, 6];
 
-console.log('Площадь круга состaвляет ' + getUsersRadius(areaCircle) + ' метров квадратных');
+function clone(arr) {
+    let a = [];
 
-console.log('Длина окружности состaвляет ' + getUsersRadius(areaPerimeter) + ' метров');
+    for (let i = 0; i <= arr.length - 1; i++) {
+        a[i] = arr[i];
+    }
 
-console.log('Среднее арифметическое двух чисел составляет ' + avarage(sum));
+    return a
+}
 
-getResult();
+let brr = clone(arr);
+brr[0] = 'newValue';
+
+console.log(arr);
+console.log(brr);
+
+let arrNumber = [1, 2, 3, 4, 5, 6];
+
+function filter(arr, isEven) {
+    let newArr = [];
+    let newArrIndex = 0;
+
+    function isEven(x) { return x % 2 === 0; }
+
+    for (let i = 0; i <= arr.length - 1; i++) {
+        if (isEven(arr[i])) {
+            newArr[newArrIndex] = arr[i];
+            newArrIndex++;
+        }
+    }
+
+    return newArr;
+}
+
+console.log(filter(arrNumber));
