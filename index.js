@@ -1,11 +1,9 @@
 "use strict";
 
 function areaCircle (a) {
-    let b = Math.PI;
-    let r = Math.pow(a, 2);
-    let c = r * b;
+    let b = Math.pow(a, 2) * Math.PI;
 
-    return c;
+    return b;
 }
 
 function areaPerimeter (a) {
