@@ -1,11 +1,15 @@
 "use strict";
 
-function areaCircle (a, b) {
-    return (a*b)*(a*b);
+function areaCircle (a) {
+    let b = Math.PI;
+    let r = Math.pow(a, 2);
+    let c = r * b;
+
+    return c;
 }
 
-function areaPerimeter (a, b) {
-    return (a)*(2*b);
+function areaPerimeter (a) {
+    return (a) * (2 * Math.PI);
 }
 
 function avarage (x, y) {
@@ -25,8 +29,8 @@ function getResult(a, b, c) {
     }
 }
 
-console.log('Площадь круга состaвляет ' + areaCircle(1, 2) + ' м2');
-console.log('Длина окружности состaвляет ' + areaPerimeter(1, 2	) + ' м.');
+console.log('Площадь круга состaвляет ' + areaCircle(3) + ' м2');
+console.log('Длина окружности состaвляет ' + areaPerimeter(10) + ' м.');
 console.log('Среднее арифметическое двух чисел составляет ' + avarage(4, 10));
 console.log('Сумма чисел равна ' + getResult(2, 2, '+'));
 console.log('Вычетание чисел равно ' + getResult(2, 2, '-'));
