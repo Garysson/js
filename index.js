@@ -1,47 +1,34 @@
 "use strict";
 
-let a = prompt('Radius of circle','');
-let b = prompt('Enter first number','');
-let q = prompt('Enter second number', '');
-let c = prompt('Please neter one of mathematic operator + - * /', '');
-const PI = 3.1415;
-
-function areaCircle () {
-    return console.log('Площадь круга состaвляет ' + (a*b)*(a*b));
+function areaCircle (a, b) {
+    return (a*b)*(a*b);
 }
 
-function areaPerimeter () {
-    const b = 2 * PI;
-
-    return console.log('Длина окружности состaвляет ' + +a * b);
+function areaPerimeter (a, b) {
+    return (a)*(2*b);
 }
 
-function avarage () {
-    const c = 2;
-    const y = b + q;
-
-    return console.log('Среднее арифметическое двух чисел составляет ' + b / c);
+function avarage (x, y) {
+    return (x + y) / 2;
 }
 
-function calc(a, w, e) {
-    const v = b;
-    const n = q;
-    const l = c;
+function getResult(a, b, c) {
 
     if (c === '+') {
-        return console.log(+b + +q);
-    } else if (c === '-') {
-        return console.log(+b - +q);
-    } else if (c === '*') {
-        return console.log(+b * +q);
-    } else if (c === '/') {
-        return console.log(+b / +q);
-    } else {
-        return alert('Put one of this meanings + - / *')
+        return a + b;
+    } if (c === '-') {
+        return a - b;
+    } if (c === '/') {
+        return a / b;
+    } if (c === '*') {
+        return a * b;
     }
 }
 
-areaCircle();
-avarage();
-areaPerimeter();
-calc();
+console.log('Площадь круга состaвляет ' + areaCircle(1, 2) + ' м2');
+console.log('Длина окружности состaвляет ' + areaPerimeter(1, 2	) + ' м.');
+console.log('Среднее арифметическое двух чисел составляет ' + avarage(4, 10));
+console.log('Сумма чисел равна ' + getResult(2, 2, '+'));
+console.log('Вычетание чисел равно ' + getResult(2, 2, '-'));
+console.log('Деление чисел равно ' + getResult(2, 2, '/'));
+console.log('Умножение чисел равно ' + getResult(2, 2, '*'));
