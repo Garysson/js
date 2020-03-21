@@ -2,10 +2,16 @@
 
 let num = prompt('Высота вершины треугольника');
 
-for (let i = 0; i < num; i++) {
-	let res = '*'
-		for (let j = 0; j < i; j++) {
-			res += '*';
-		}
-	console.log(res);
+let b = '';
+
+for (let i = 1; i <= num; i++) {
+    let a = '';
+
+    for (let j = 1; j <= i; j++) {
+        a += '*';
+    }
+
+    b += a + '\n';
 }
+
+console.log(b);
