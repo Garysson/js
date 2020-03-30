@@ -1,69 +1,86 @@
 "use strict";
 
-const myObjeckt = {
-    name: 'Vasya',
-    age: 24,
-    status: 'student'
-};
+// Task 1
 
-let arr = [1, 2];
+const arr = [-246, 753, -468, 475, -683, 476, -583, 746, -581];
 
-function copy(target, origin) {
-    let newArr = [];
+let sumArr = arr.reduce(function(sum, el) {
+    return sum + el;
+});
 
-    for (let prop in origin) {
-        newArr[prop] = origin[prop];
-    }
+console.log(sumArr);
 
-    return newArr;
-}
-
-console.log(copy(arr, myObjeckt));
-
-function sumAll () {
-    let a = 0;
-
-    for (let i = 0; i <= arguments.length - 1; i ++) {
-        a += i
-    }
-
-    return a
-}
-
-console.log(sumAll(1, 2, 3, 4));
-
-function getNumberOfEven(n) {
-    let a = n + '';
-    let count = 0;
-
-    for (let i = 0; i <= a.length - 1; i++) {
-        if (a[i] % 2 === 0) {
-            count += 1;
+let arrNegativeValue = Object.create(arr.filter(function(el) {
+        if (el < 0) {
+            return el;
         }
+    })
+);
+
+console.log(arrNegativeValue);
+
+let arrSortIncrease = arr.sort(function(a, b){
+    return a - b;
+});
+
+console.log(arrSortIncrease);
+
+let arrSortDecrease = arr.sort(function(a, b){
+    return b - a;
+});
+
+console.log(arrSortDecrease);
+
+let arrDivision = arr.map(function(el) {
+    return el / 2;
+});
+
+console.log(arrDivision);
+
+// Task 2
+
+const str = "12, 42, 63, 56, 122, 17, 117, 25, 645, 722, 964";
+
+let brrFromString = str.split(', ');
+
+let brrEven = brrFromString.filter(function(el, i) {
+    if (el % 2 === 0) {
+        return el;
+    }
+});
+
+console.log(brrFromString, brrEven);
+
+// Task 3
+
+const scheme = [
+    ['name', 'Vasya'],
+    ['age', 25],
+    ['score', 95]
+];
+
+function makeObjectFromArr(arr) {
+    let obj = {};
+
+    for (let j = 0; j < arr.length; j++) {
+        obj[arr[j][0]] = arr[j][1];
     }
 
-    return count
+    return obj;
 }
 
-console.log(getNumberOfEven(223344));
+console.log(makeObjectFromArr(scheme));
 
-Math.min.apply(Math, arr)
+const objArr = makeObjectFromArr(scheme);
 
-function mathMinMax() {
-    let arr = [];
-    let brr = ['',''];
+function makeArrFromObject(obj) {
+    let a = [];
 
-    for (let prop in arguments) {
-        arr[prop] = arguments[prop];
+    for (let key in obj) {
+        a.push([key, obj[key]]);
     }
 
-    let a = Math.min(...arr);
-    let b = Math.max(...arr);
-
-    brr['0'] = a;
-    brr['1'] = b;
-
-    return brr
+    return a;
 }
 
-console.log(mathMinMax(3, 4, 8, 555, 7, 2, 3, -100, 2, 3, 5));
+console.log(makeArrFromObject(objArr));
