@@ -1,86 +1,43 @@
 "use strict";
 
-// Task 1
-
-const arr = [-246, 753, -468, 475, -683, 476, -583, 746, -581];
-
-let sumArr = arr.reduce(function(sum, el) {
-    return sum + el;
-});
-
-console.log(sumArr);
-
-let arrNegativeValue = Object.create(arr.filter(function(el) {
-        if (el < 0) {
-            return el;
-        }
-    })
-);
-
-console.log(arrNegativeValue);
-
-let arrSortIncrease = arr.sort(function(a, b){
-    return a - b;
-});
-
-console.log(arrSortIncrease);
-
-let arrSortDecrease = arr.sort(function(a, b){
-    return b - a;
-});
-
-console.log(arrSortDecrease);
-
-let arrDivision = arr.map(function(el) {
-    return el / 2;
-});
-
-console.log(arrDivision);
-
 // Task 2
 
-const str = "12, 42, 63, 56, 122, 17, 117, 25, 645, 722, 964";
+"use strict";
 
-let brrFromString = str.split(', ');
+let link = (((decodeURIComponent((window.location).hash).replace('#?','&')).split('&utm_')).join()).split(',').filter(Boolean);
 
-let brrEven = brrFromString.filter(function(el, i) {
-    if (el % 2 === 0) {
-        return el;
-    }
-});
+let arr = [];
 
-console.log(brrFromString, brrEven);
+link.forEach((el) => {
+    let a = {};
+        a[el.split('=')[0]] = el.split('=')[1]
+    arr.push(a)
+})
 
-// Task 3
+function createTable(arr) {
+    let str = '<table>'
 
-const scheme = [
-    ['name', 'Vasya'],
-    ['age', 25],
-    ['score', 95]
-];
+    for (let i = 0; i < arr.length ; i++) {
+        str += '<tr>';
 
-function makeObjectFromArr(arr) {
-    let obj = {};
+        for (var prop in arr[i]) {
+            str += `<td>${prop}</td><td>${arr[i][prop]}</td>`
+        }
 
-    for (let j = 0; j < arr.length; j++) {
-        obj[arr[j][0]] = arr[j][1];
+        str += '</tr>';
     }
 
-    return obj;
+    str += '</table>'
+
+    return str
 }
 
-console.log(makeObjectFromArr(scheme));
-
-const objArr = makeObjectFromArr(scheme);
-
-function makeArrFromObject(obj) {
-    let a = [];
-
-    for (let key in obj) {
-        a.push([key, obj[key]]);
-    }
-
-    return a;
+document.getElementById('reset').onclick = function() {
+    location.reload();
 }
 
-console.log(makeArrFromObject(objArr));
+let div = document.createElement('div');
+
+div.innerHTML = createTable(arr);
+
+document.body.append(div);
