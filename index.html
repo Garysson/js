@@ -6,158 +6,73 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hello World</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <style type="text/css">
         table {
             width: 400px;
-            margin: 0 auto;
+            margin: 0 auto 30px;
         }
-        p {
+        td {
+            padding: 10px;
+            border: 1px solid;
+            text-align: center;
+            height: 100px;
+            cursor: pointer;
+            font-size: 30px;
+        }
+        .output-text {
+            margin: 0 auto 100px;
+            font-size: 30px;
+            line-height: 40px;
+            border: 3px solid lightblue;
+            width: 400px;
+            height: 40px;
+            text-align: center;
+        }
+        .wrap {
+            margin: 0 auto;
+            border: 1px solid;
+            padding: 20px;
+            display: flex;
+            width: 900px;
+            min-height: 480px;
+            font-size: 0;
+            background-color: lightgreen;
+        }
+        .show-text {
+            width: 300px;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        h1 {
+            cursor: pointer;
             margin: 0;
             text-align: center;
         }
-        input {
-            padding: 3px;
-            text-align: center;
-        }
-        tr {
-            margin-bottom: 20px;
-        }
-        form {
-            border: 1px solid;
-            box-shadow: inset 0 0 10px #000000;
-            width: 600px;
-            margin: 50px auto 0;
-            padding: 20px 0;
-        }
-        .letter,
-        .uppercase {
-            padding: 5px;
-            border: 1px solid;
-            text-align: center;
-            font-size: 20px;
-            line-height: 20px;
-            cursor: pointer;
-            text-transform: lowercase;
-        }
-        .uppercase img {
-            max-height: 20px;
-        }
-        .text-wrap {
-            width: 200px;
-            height: 30px;
-            line-height: 30px;
-            padding: 5px 15px;
-            border: 1px solid;
-        }
-        .delete {
-            margin-left: 30px;
-            height: 30px;
-            line-height: 30px;
-            padding: 5px 15px;
-            border: 1px solid;
-            cursor: pointer;
-        }
-        .wrap {
-            display: flex;
-            justify-content: center;
-            font-size: 20px;
-            font-family: sans-serif;
-            width: 600px;
-            margin: 10px auto;
+        .text {
+            display: none;
+            padding: 10px;
         }
     </style>
 </head>
     <body>
-    <div class="wrap">
-        <div class="text-wrap" type="text"></div>
-        <div class="delete">Delete</div>
-    </div>
-    <table>
-        <tr>
-            <td class="letter">1</td>
-            <td class="letter">2</td>
-            <td class="letter">3</td>
-            <td class="letter">4</td>
-            <td class="letter">5</td>
-            <td class="letter">6</td>
-            <td class="letter">7</td>
-            <td class="letter">8</td>
-            <td class="letter">9</td>
-            <td class="letter">0</td>
-        </tr>
-        <tr>
-            <td class="letter">q</td>
-            <td class="letter">w</td>
-            <td class="letter">e</td>
-            <td class="letter">r</td>
-            <td class="letter">t</td>
-            <td class="letter">y</td>
-            <td class="letter">u</td>
-            <td class="letter">i</td>
-            <td class="letter">o</td>
-            <td class="letter">p</td>
-        </tr>
-        <tr>
-            <td class="letter">a</td>
-            <td class="letter">s</td>
-            <td class="letter">d</td>
-            <td class="letter">f</td>
-            <td class="letter">g</td>
-            <td class="letter">h</td>
-            <td class="letter">j</td>
-            <td class="letter">k</td>
-            <td class="letter">l</td>
-            <td class="letter">1</td>
-        </tr>
-        <tr>
-            <td class="letter">z</td>
-            <td class="letter">x</td>
-            <td class="letter">c</td>
-            <td class="letter">v</td>
-            <td class="letter">b</td>
-            <td class="letter">n</td>
-            <td class="letter">m</td>
-            <td class="letter">!</td>
-            <td class="letter">&nbsp;</td>
-            <td class="uppercase"><img src="https://thumbs.dreamstime.com/z/%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D0%B0%D1%8F-%D1%81%D1%82%D1%80%D0%B5-%D0%BA%D0%B0-%D0%B2%D0%B2%D0%B5%D1%80%D1%85-36894143.jpg"></td>
-        </tr>
-    </table>
-    <form action="" name="currencyexchange">
+        <div class="myTable"></div>
+        <div class="output-text"></div>
         <div class="wrap">
-            <p>Конвертер валют</p>
+            <div class="show-text">
+                <h1>First text</h1>
+                <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+            <div class="show-text">
+                <h1>Second text</h1>
+                <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+            <div class="show-text">
+                <h1>Third text</h1>
+                <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
         </div>
-        <div class="wrap">
-            <input name="operation" type="radio" value="sell">Продажа
-            <input name="operation" type="radio" value="buy">Покупка
-        </div>
-        <div class="wrap">
-            <select id="currency_from">
-                <option value="usd">USD</option>
-                <option value="uah">UAH</option>
-                <option value="eur">EUR</option>
-            </select>
-            <select id="currency_to">
-                <option value="usd">USD</option>
-                <option value="uah">UAH</option>
-                <option value="eur">EUR</option>
-            </select>
-        </div>
-        <div class="wrap">
-            <p>Введите сумму<br>
-                <input type="number" size="40" name="amount" value="0">
-            </p>
-        </div>
-        <div class="wrap">
-            <p>Результат</p>
-        </div>
-        <div class="wrap">
-            <div class="result" type="text" name="result"></div>
-        </div>
-        <div class="wrap">
-            <button type="submit" name="button">Выбрать</button>
-        </div>
-    </form>
-
-    <script src="index.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>
