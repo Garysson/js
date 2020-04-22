@@ -1,37 +1,48 @@
 "use strict";
 
-$('.wrap').on('click', '.square', function(event) {
-    if (event.target.nodeName != 'BUTTON') {
-        $(this).find('span').text(function(i, el) {
-            el = +el + 1;
-            return el;
-        });
-    }
-});
+let el = document.getElementById('wrapper');
+el.addEventListener('click', function(i){
+    let el = i.target;
+    let color = el.style.backgroundColor;
 
-$('.wrap').on('click', '.wrap-button', function(event) {
-    if (event.target.className === 'plus') {
-        $(this).prev().text(function(i, el) {
-            el = +el + 1;
-            return el;
-        });
+    if (color === null) {
+        color = 'blue';
+    } else if (color === 'blue') {
+        color = 'green';
+    } else if (color === 'green') {
+        color = 'yellow';
     } else {
-        $(this).prev().text(function(i, el) {
-            if (el === '0') {
-                return;
-            }
-            el = +el - 1;
-            return el;
+        color = 'blue';
+    };
+
+    el.setAttribute('style', `background-color:${color}; border: 3px solid ${color};`);
+
+    let a = el.outerHTML;
+    el.remove();
+    let b = document.getElementById('wrapper').innerHTML;
+    let str = a + b;
+
+    document.getElementById('wrapper').innerHTML = str;
+});
+
+function toggleClass(tagname, newclassname) {
+    document.querySelectorAll(`${tagname}`)
+        .forEach(function(item) {
+            item.addEventListener('click', function(event){
+
+                let e = event.target.className.split(' ');
+
+                if (e.includes(`${newclassname}`)) {
+                    let i = e.indexOf(`${newclassname}`);
+                    e.splice(i, 1);
+                    event.target.className = e.join(' ');
+                } else {
+                    e.splice(e.length, 1, `${newclassname}`);
+                    e.join(' ');
+                    event.target.className = e.join(' ')
+                }
+            })
         });
-    }
-});
+}
 
-$('.wrapper').on('click', '.second-square', function(event) {
-    let randomColor = '#'+ ('000000' + Math.floor(Math.random()*16777215).toString(16)).slice(-6);
-
-    let randomColorBorder = '#'+ ('000000' + Math.floor(Math.random()*16777215).toString(16)).slice(-6);
-
-    $(this).css({'background-color' : `${randomColor}`, 'border-color' : `${randomColorBorder}`});
-
-    $(".wrapper").prepend($(this).remove()['0'].outerHTML);
-});
+toggleClass('div', 'border');
